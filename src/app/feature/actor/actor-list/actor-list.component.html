@@ -1,0 +1,57 @@
+<section class="heading">
+  <span class="page-title font-weight-bold font-italic">{{ title }}</span>
+  <a routerLink="/actor-create">
+    <img width="20" height="20" src="/assets/add-icon.png" title="Add New" />
+  </a>
+</section>
+<div id="actorList-container">
+  <table class="table table-hover table-striped">
+    <thead>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Birth Date</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of actorList">
+        <td>{{ a.id }}</td>
+        <td>{{ a.firstName }}</td>
+        <td>{{ a.lastName }}</td>
+        <td>{{ a.gender }}</td>
+        <td>{{ a.birthdate }}</td>
+        <a>
+          <img
+            src="/assets/delete.jpg"
+            width="20"
+            height="20"
+            title="Delete Actor"
+            (click)="delete(a.id)"
+            id="delete-button"
+          />
+        </a>
+        &nbsp;
+        <a routerLink="/actor-edit/{{ a.id }}">
+          <img
+            src="/assets/pencil-icon.png"
+            width="20"
+            height="20"
+            title="Edit Actor"
+            id="edit-button"
+          />
+        </a>
+        &nbsp;
+        <a routerLink="/actor-detail/{{ a.id }}">
+          <img
+            src="/assets/details.png"
+            width="20"
+            height="20"
+            title="Edit Actor Link"
+            id="edit-button"
+          />
+        </a>
+      </tr>
+    </tbody>
+  </table>
+</div>

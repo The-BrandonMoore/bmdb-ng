@@ -1,0 +1,60 @@
+<h1 id="ActorDetails">{{ title }}</h1>
+<div id="form-container">
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngIf="actor">
+        <td>ID</td>
+        <td>
+          <input [(ngModel)]="actor.id" type="text" title="ID" disabled />
+        </td>
+      </tr>
+      <tr *ngIf="actor">
+        <td>First Name:</td>
+        <td>
+          <input
+            [(ngModel)]="actor.firstName"
+            type="text"
+            title="Title"
+            disabled
+          />
+        </td>
+      </tr>
+      <tr *ngIf="actor">
+        <td>Last Name:</td>
+        <td>
+          <input
+            [(ngModel)]="actor.lastName"
+            type="text"
+            title="year"
+            disabled
+          />
+        </td>
+      </tr>
+      <tr *ngIf="actor">
+        <td>Gender:</td>
+        <td>
+          <input
+            [(ngModel)]="actor.gender"
+            type="text"
+            title="rating"
+            disabled
+          />
+        </td>
+      </tr>
+      <tr *ngIf="actor">
+        <td>Director</td>
+        <td>
+          <input
+            [(ngModel)]="actor.birthdate"
+            type="date"
+            title="director"
+            disabled
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <td id="button">
+    <button routerLink="/actor-edit/:{{ actor.id }}">Edit Actor</button>
+  </td>
+</div>

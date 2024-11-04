@@ -1,0 +1,49 @@
+<h1 id="addActor">Create Actor</h1>
+<div id="form-container">
+  <table class="table-striped">
+    <tbody>
+      <tr>
+        <td>First Name:</td>
+        <td>
+          <input
+            [(ngModel)]="newActor.firstName"
+            type="text"
+            placeholder="First Name"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td>
+          <input
+            [(ngModel)]="newActor.lastName"
+            type="text"
+            placeholder="Last Name"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>
+          <label>
+            <select [(ngModel)]="newActor.gender" title="gender">
+              <option value="" disabled selected>Select Actor Gender</option>
+              <option *ngFor="let gender of genders" [ngValue]="gender">
+                {{ gender }}
+              </option>
+            </select>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Date of Birth:</td>
+        <input
+          [(ngModel)]="newActor.birthdate"
+          type="date"
+          placeholder="today"
+        />
+      </tr>
+    </tbody>
+  </table>
+  <td id="button"><button (click)="addActor()">Add Actor</button></td>
+</div>

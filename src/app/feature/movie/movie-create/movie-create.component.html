@@ -1,0 +1,55 @@
+<h1 id="addMovie">Create Movie</h1>
+<div id="form-container">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Title:</td>
+        <td>
+          <input
+            [(ngModel)]="newMovie.title"
+            type="text"
+            placeholder="Enter Title"
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Year:</td>
+        <td>
+          <input
+            [(ngModel)]="newMovie.year"
+            required
+            type="year"
+            min="1900"
+            max="2100"
+            step="1"
+            placeholder="2024"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Rating:</td>
+        <td>
+          <select [(ngModel)]="newMovie.rating" class="rounded" title="rating">
+            <option value="" disabled selected>Select Rating</option>
+            <option *ngFor="let rating of ratings" [ngValue]="rating">
+              {{ rating }}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Director</td>
+        <td>
+          <input
+            [(ngModel)]="newMovie.director"
+            type="text"
+            title="director"
+            placeholder="Enter Director"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <td id="button"><button (click)="addMovie()">Add Movie</button></td>
+</div>

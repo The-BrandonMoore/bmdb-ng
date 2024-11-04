@@ -1,0 +1,42 @@
+<section>
+  <h1 id="EditActor">{{ title }}</h1>
+  <div *ngIf="actor" id="form-container">
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>ID</td>
+          <td>
+            <input [(ngModel)]="actor.id" type="text" title="ID" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>First Name:</td>
+          <td>
+            <input [(ngModel)]="actor.firstName" type="text" title="Title" />
+          </td>
+        </tr>
+        <tr>
+          <td>Last Name:</td>
+          <td>
+            <input [(ngModel)]="actor.lastName" type="text" title="year" />
+          </td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <input [(ngModel)]="actor.gender" type="text" title="rating" />
+          </td>
+        </tr>
+        <tr>
+          <td>Director</td>
+          <td>
+            <input [(ngModel)]="actor.birthdate" type="date" title="director" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <td id="button">
+      <button (click)="editActor(actor.id)">Edit Actor</button>
+    </td>
+  </div>
+</section>

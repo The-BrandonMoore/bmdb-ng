@@ -1,0 +1,57 @@
+<section>
+  <h1 id="MovieDetails">{{ title }}</h1>
+  <div id="form-container">
+    <table class="table table-striped" *ngIf="movie">
+      <tbody>
+        <tr>
+          <td>ID</td>
+          <td>
+            <input [(ngModel)]="movie.id" type="text" title="ID" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>Title:</td>
+          <td>
+            <input
+              [(ngModel)]="movie.title"
+              type="text"
+              title="Title"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Year:</td>
+          <td>
+            <input [(ngModel)]="movie.year" type="text" title="year" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>Rating:</td>
+          <td>
+            <input
+              [(ngModel)]="movie.rating"
+              type="text"
+              title="rating"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Director</td>
+          <td>
+            <input
+              [(ngModel)]="movie.director"
+              type="text"
+              title="director"
+              disabled
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <td id="button">
+      <button routerLink="/movie-edit/{{ movie.id }}">Edit Movie</button>
+    </td>
+  </div>
+</section>

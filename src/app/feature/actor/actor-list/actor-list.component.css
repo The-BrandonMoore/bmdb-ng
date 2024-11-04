@@ -1,0 +1,17 @@
+#actorList-container {
+  margin: 25px;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+#form-container {
+  margin: 0 auto;
+  width: 30%;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  margin-bottom: 40px;
+}
+#button {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}

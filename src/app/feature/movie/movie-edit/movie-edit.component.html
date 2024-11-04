@@ -1,0 +1,45 @@
+<h1 id="addMovie">{{ title }}</h1>
+<div id="form-container">
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngIf="movie">
+        <td>ID</td>
+        <td>
+          <input [(ngModel)]="movie.id" type="text" title="ID" disabled />
+        </td>
+      </tr>
+      <tr *ngIf="movie">
+        <td>Title:</td>
+        <td>
+          <input [(ngModel)]="movie.title" type="text" title="Title" />
+        </td>
+      </tr>
+      <tr *ngIf="movie">
+        <td>Year:</td>
+        <td>
+          <input [(ngModel)]="movie.year" type="text" title="year" />
+        </td>
+      </tr>
+      <tr *ngIf="movie">
+        <td>Rating:</td>
+        <td>
+          <select [(ngModel)]="movie.rating" class="rounded" title="rating">
+            <option value="" disabled selected>Select Rating</option>
+            <option *ngFor="let rating of ratings" [ngValue]="rating">
+              {{ rating }}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr *ngIf="movie">
+        <td>Director</td>
+        <td>
+          <input [(ngModel)]="movie.director" type="text" title="director" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <td id="button">
+    <button (click)="editMovie(movie.id)">Save Changes</button>
+  </td>
+</div>

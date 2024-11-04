@@ -1,0 +1,43 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-variant-caps: small-caps;
+  font-family: serif;
+  font-size: 65px;
+  background-color: lightgray;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-variant-caps: small-caps;
+  font-family: serif;
+  background-color: lightgray;
+}
+
+#movieList-container {
+  margin: 25px;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+#form-container {
+  margin: 0 auto;
+  width: 30%;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  margin-bottom: 40px;
+}
+#button {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+#delete-button {
+  background-color: transparent;
+}
+
+#edit-button,
+#delete-button:hover {
+  cursor: pointer;
+}
