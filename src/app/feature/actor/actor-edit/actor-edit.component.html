@@ -24,7 +24,12 @@
         <tr>
           <td>Gender:</td>
           <td>
-            <input [(ngModel)]="actor.gender" type="text" title="rating" />
+            <select [(ngModel)]="actor.gender" title="gender">
+              <option value="" disabled selected>Select Actor Gender</option>
+              <option *ngFor="let gender of genders" [ngValue]="gender">
+                {{ gender }}
+              </option>
+            </select>
           </td>
         </tr>
         <tr>
@@ -36,7 +41,7 @@
       </tbody>
     </table>
     <td id="button">
-      <button (click)="editActor(actor.id)">Edit Actor</button>
+      <button (click)="editActor(actor.id)">Save Changes</button>
     </td>
   </div>
 </section>

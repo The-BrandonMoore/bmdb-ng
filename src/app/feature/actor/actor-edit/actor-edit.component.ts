@@ -14,6 +14,7 @@ export class ActorEditComponent implements OnInit, OnDestroy {
   actorId!: number;
   actor!: Actor;
   subscription!: Subscription;
+  genders: string[] = ['M', 'F'];
 
   constructor(
     private router: Router,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Credit } from '../../../model/credit.class';
+import { Subscription } from 'rxjs';
+import { CreditService } from '../../../service/credit.service';
 
 @Component({
   selector: 'app-credit-list',
@@ -8,24 +10,34 @@ import { Credit } from '../../../model/credit.class';
 })
 export class CreditListComponent implements OnInit {
   title: string = 'Credit List';
-  creditList: Credit[] = [];
+  creditList: Credit[] | undefined;
+  subscription!: Subscription;
+
+  constructor(private creditSvc: CreditService) {}
 
   ngOnInit(): void {
-    this.creditList = [
-      new Credit(1, 1, 1, 'Andy Dufresne'), // Tim Robbins in The Shawshank Redemption
-      new Credit(2, 1, 2, "Ellis 'Red' Redding"), // Morgan Freeman in The Shawshank Redemption
-      new Credit(3, 2, 3, 'Vincent Vega'), // John Travolta in Pulp Fiction
-      new Credit(4, 2, 4, 'Mia Wallace'), // Uma Thurman in Pulp Fiction
-      new Credit(5, 3, 5, 'Bruce Wayne / Batman'), // Christian Bale in The Dark Knight
-      new Credit(6, 4, 6, 'Forrest Gump'), // Tom Hanks in Forrest Gump
-      new Credit(7, 5, 7, 'Neo'), // Keanu Reeves in The Matrix
-      new Credit(8, 6, 8, 'Tyler Durden'), // Brad Pitt in Fight Club
-      new Credit(9, 7, 9, 'Frodo Baggins'), // Elijah Wood in The Lord of the Rings
-      new Credit(10, 8, 10, 'Maximus Decimus Meridius'), // Russell Crowe in Gladiator
-    ];
+    this.subscription = this.creditSvc.list().subscribe((resp) => {
+      this.creditList = resp;
+    });
   }
 
-  delete(i: number) {
-    this.creditList.splice(i, 1);
+  delete(id: number): void {
+    this.subscription = this.creditSvc.delete(id).subscribe({
+      next: () => {
+        // redisplay the page.
+        this.subscription = this.creditSvc.list().subscribe((resp) => {
+          this.creditList = resp;
+          // add code to loop through the credits and populate the movie and actor for each.
+        });
+      },
+      error: (error) => {
+        console.error('Error deleting credit for id:' + id);
+        alert('Error Deleting Credit for ID: ' + id);
+      },
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe;
   }
 }

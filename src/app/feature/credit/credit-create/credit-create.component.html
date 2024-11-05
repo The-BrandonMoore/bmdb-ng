@@ -1,24 +1,41 @@
-<h1 id="addCredit">Create Credit</h1>
+<h1 id="addCredit">{{ title }}</h1>
 <div id="form-container">
-  <table class="table-striped">
+  <table class="table table-striped">
     <tbody>
       <tr>
-        <td>ID:</td>
-        <td><input type="number" placeholder="0" /></td>
+        <td>Movie:</td>
+        <td>
+          <select [(ngModel)]="newCredit.movie" class="rounded" title="rating">
+            <option value="" disabled selected>Select Movie</option>
+            <option *ngFor="let m of movies" [ngValue]="m">
+              {{ m.title }}
+            </option>
+          </select>
+        </td>
       </tr>
       <tr>
-        <td>Movie ID:</td>
-        <td><input type="number" placeholder="0" /></td>
+        <td>Actor:</td>
+        <td>
+          <select [(ngModel)]="newCredit.actor" class="rounded" title="rating">
+            <option value="" disabled selected>Select Actor</option>
+            <option *ngFor="let a of actors" [ngValue]="a">
+              {{ a.lastName + ", " + a.firstName }}
+            </option>
+          </select>
+        </td>
       </tr>
       <tr>
-        <td>Actor ID:</td>
-        <td><input type="number" placeholder="0" /></td>
-      </tr>
-      <tr>
-        <td>Role:</td>
-        <td><input type="text" placeholder="Role" /></td>
+        <td>Role</td>
+        <td>
+          <input
+            [(ngModel)]="newCredit.role"
+            type="text"
+            title="director"
+            placeholder="Enter Role"
+          />
+        </td>
       </tr>
     </tbody>
   </table>
-  <button>Create Credit</button>
+  <td id="button"><button (click)="addCredit()">Add Credit</button></td>
 </div>

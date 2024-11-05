@@ -1,0 +1,52 @@
+<section>
+  <h1 id="creditdetails">{{ title }}</h1>
+  <div id="form-container">
+    <table class="table table-striped" *ngIf="credit">
+      <tbody>
+        <tr>
+          <td>ID</td>
+          <td>
+            <input [(ngModel)]="credit.id" type="text" title="ID" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>Movie Title:</td>
+          <td>
+            <input
+              [(ngModel)]="credit.movie.title"
+              type="text"
+              title="Title"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Actor:</td>
+          <td>
+            <input
+              value="{{ credit.actor.firstName + ' ' + credit.actor.lastName }}"
+              type="text"
+              title="year"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Role:</td>
+          <td>
+            <input
+              [(ngModel)]="credit.role"
+              type="text"
+              title="rating"
+              disabled
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <td id="button">
+      <button routerLink="/credit-edit/{{ credit.id }}">Edit Credit</button> |
+      <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button>
+    </td>
+  </div>
+</section>
