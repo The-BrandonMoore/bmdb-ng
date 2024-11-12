@@ -33,7 +33,11 @@ export class CreditService {
   }
 
   //put edit() -- this is called with the submit/save changes button.
-  editMovie(id: number, credit: Credit): Observable<Credit> {
-    return this.http.put(URL + '/' + id, credit) as Observable<Credit>;
+  editCredit(credit: Credit): Observable<Credit> {
+    return this.http.put(URL + '/' + credit.id, credit) as Observable<Credit>;
+  }
+
+  getByMovieId(movieId: number): Observable<Credit[]> {
+    return this.http.get(URL + '/movie/' + movieId) as Observable<Credit[]>;
   }
 }

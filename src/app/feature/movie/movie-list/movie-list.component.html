@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <section class="heading">
   <span class="page-title font-weight-bold font-italic">{{ title }}</span>
   <!-- routerLInk example -->
@@ -5,19 +6,20 @@
   <a routerLink="/movie-create">
     <img width="20" height="20" src="/assets/add-icon.png" title="Add New" />
   </a>
+  Welcome {{ welcomeName }}!
 </section>
 <div id="movieList-container">
   <table class="table table-hover table-striped">
     <thead>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Year</th>
-      <th>Rating</th>
-      <th>Director</th>
+      <th><a (click)="sortBy('id')">ID</a></th>
+      <th><a (click)="sortBy('title')">Title</a></th>
+      <th><a (click)="sortBy('year')">Year</a></th>
+      <th><a (click)="sortBy('rating')">Rating</a></th>
+      <th><a (click)="sortBy('director')">Director</a></th>
       <th>Action</th>
     </thead>
     <tbody>
-      <tr *ngFor="let m of movieList">
+      <tr *ngFor="let m of movieList | sort : sortCriteria : sortOrder">
         <td>{{ m.id }}</td>
         <td>{{ m.title }}</td>
         <td>{{ m.year }}</td>
@@ -34,7 +36,6 @@
               height="20"
               title="Delete Movie"
               (click)="delete(m.id)"
-              id="delete-button"
             />
           </a>
           &nbsp;
@@ -44,7 +45,6 @@
               width="20"
               height="20"
               title="Edit Movie"
-              id="edit-button"
             />
           </a>
           &nbsp;
@@ -54,7 +54,15 @@
               width="20"
               height="20"
               title="Edit Movie"
-              id="edit-button"
+            />
+          </a>
+          &nbsp;
+          <a routerLink="/movie-credit/{{ m.id }}">
+            <img
+              src="/assets/lines.png"
+              width="20"
+              height="20"
+              title="Movie Credits"
             />
           </a>
         </td>

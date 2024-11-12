@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Credit } from '../../../model/credit.class';
 import { Subscription } from 'rxjs';
-import { Movie } from '../../../model/movie.class';
-import { CreditService } from '../../../service/credit.service';
 import { Router } from '@angular/router';
+import { Credit } from '../../../model/credit.class';
+import { CreditService } from '../../../service/credit.service';
+import { Movie } from '../../../model/movie.class';
+import { MovieService } from '../../../service/movie.service';
 import { Actor } from '../../../model/actor.class';
 import { ActorService } from '../../../service/actor.service';
-import { MovieService } from '../../../service/movie.service';
 
 @Component({
   selector: 'app-credit-create',

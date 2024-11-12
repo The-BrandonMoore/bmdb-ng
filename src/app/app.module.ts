@@ -19,6 +19,9 @@ import { ActorDetailComponent } from './feature/actor/actor-detail/actor-detail.
 import { MovieDetailComponent } from './feature/movie/movie-detail/movie-detail.component';
 import { CreditDetailComponent } from './feature/credit/credit-detail/credit-detail.component';
 import { CreditEditComponent } from './feature/credit/credit-edit/credit-edit.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { MovieCreditComponent } from './feature/movie/movie-credit/movie-credit.component';
+import { SortPipe } from './pipe/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -29,14 +32,17 @@ import { CreditEditComponent } from './feature/credit/credit-edit/credit-edit.co
     ActorCreateComponent,
     ActorEditComponent,
     ActorDetailComponent,
-    CreditListComponent,
-    CreditCreateComponent,
     MovieListComponent,
     MovieCreateComponent,
     MovieDetailComponent,
     MovieEditComponent,
+    MovieCreditComponent,
+    CreditListComponent,
+    CreditCreateComponent,
     CreditDetailComponent,
     CreditEditComponent,
+    UserLoginComponent,
+    SortPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideHttpClient()],
